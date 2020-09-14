@@ -18,27 +18,32 @@
     webchat/history/url 
     webchat/unauthorizedHistory/url
 
-#### 2. Скачайте файл [web-notification-sw.js](../demo/WebPush/web-notification-sw.js)
 
-Файл нужно положить в папку с `settings.json`, который содержит стандартные настройки + `skins` + `WebPush`, об этом же `settings.json` идет информация ниже в п.5 (для включения браузнерных веб-нотификаций о получении новых сообщений в виджете)
+#### 2. Скачайте актуальную версию виджета для настройки чата
 
-#### 3. Скачайте актуальную версию виджета для настройки чата
+**Важно: версия виджета не должна быть новее версии backend приложения**
 
-Либо со страницы: releases (Важно: версия виджета не должна быть новее версии backend приложения)
+Из радела [releases](https://github.com/ThreadsMobileLib/threads-sdk-web-gate/releases)
+
 Либо с главной страницы -> нажать на кнопку `Code` -> нажать на `Download ZIP`
 
-#### 4. Разместите файлы виджета `***.min.js`, `***.min.css` в корне или каком-либо каталоге своего сайта
 
-#### 5. Скачайте пример конфигурационного файла [`settings.json`]()
+#### 3. Разместите файлы виджета `***.min.js`, `***.min.css` в корне или каком-либо каталоге своего сайта
 
-Указать ссылку на файл, который содержит и `examples/Skins` и `examples/WebPush` (т.е. файл должен быть 1 и содержать: все базовые настройки+настройка темы `skins` + `pushNotification`, пример: `settings.json`)
 
-#### 6. Настройте в файле `settings.json` параметры, данные которых были получены от аккаунт-менеджера на шаге 1.
+#### 4. Скачайте пример конфигурационного файла [`settings.json`](https://github.com/ThreadsMobileLib/threads-sdk-web-gate/blob/master/examples/Standard/settings.json)
 
-#### 7. Настройте цветовую схему, подходящую вашему сайту.
+Все настройки виджета производятся в данном файле. Путь к нему необходимо будет указать далее при инициализации виджета (п.9)
+
+
+#### 5. Настройте в файле `settings.json` параметры, данные которых были получены от аккаунт-менеджера на шаге 1.
+
+
+#### 6. Настройте цветовую схему, подходящую вашему сайту.
 
 В секции `skin`. В примере файла параметры отвечают за цвета следующих элементов:
 ![Цвета в skin](assets/ru/skin-palette.png)
+
 
 <table>
 <tr>
@@ -72,58 +77,93 @@
 </table>
 
 
-#### 8. Настройте WebPush уведомления: 
+#### 7. Настройте WebPush уведомления: 
 
-Создайте проект Firebase для работы пушей (Вставить инструкцию со скринами из документа )
-Настройте файл `firebase-messaging-sw.js` по этому шаблону <ссылка на пример в github> файл нужно положить в папку с `settings.json`, который содержит стандартные настройки + `skins` + `WebPush`, об этом же `settings.json` идет информация в п.5. В config приведите параметры service worker для виджета:
- 
-<details>
-    <summary>Создайте проект Firebase для работы пушей:</summary>
-
-<img src="assets/ru/skin-palette.png">
-В примере файла параметры отвечают за цвета следующих элементов
-
-<img src="assets/ru/skin-palette.png">
-В примере файла параметры отвечают за цвета следующих элементов
-
-В примере файла параметры отвечают за цвета следующих элементов:
-![Цвета в skin](assets/ru/skin-palette.png)
-
-В примере файла параметры отвечают за цвета следующих элементов:
-![Цвета в skin](assets/ru/skin-palette.png)
-</details>
+Создайте проект Firebase для работы пушей.
 
 <details>
-    <summary>Пример:</summary>
+    <summary>Инструкция по регистрации в Firebase:</summary>
 
-    var config = {
-        "enable": false,
-        "firebaseConfig": {"apiKey": "AIzaSyD2pk0enxE82dREjQhnhwhwTcgAoH3x0hs",
-        "authDomain": "peterbald-d876e.firebaseapp.com",
-        "databaseURL": "https://peterbald-d876e.firebaseio.com",
-        "projectId": "peterbald-d876e",
-        "storageBucket": "peterbald-d876e.appspot.com",
-        "messagingSenderId": "252946030934",
-        "appId": "1:252946030934:web:bf31cad72130232e43f6f7"},
-        "title": "Threads Chat",
-        "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABOUExURUxpcejo6Onp6enp6eTk5Onp6erq6uvr6+np6eXl5enp6ejo6Ovr6+zs7Ojo6Onp6ePj4+rq6pmZmdPT06enp+bm5p6entra2sLCwrm5ueNweO8AAAARdFJOUwBOiKUcunn78A3dnllqk8XwLooT9gAAAWVJREFUSMedllmShSAMRXHggYq+YhLd/0bbtluLJODA/SR1yiQmFxgj6tTEeymE7PmkOnarduRCRxJ8bK+BQSc05KGuljopWWfyqzLADlUp4qMv9aFJNfpGDUqu++pbfSHT6AdqXtSRqKeiUR+Cp6dn3zrcXW+d2eQs6fVRTo0CYQd2KKBQ/T8l6CNhNqdmxMi/2UFz5SNiY1BFw/4R9O3VAK0o/PuZEZ3NEJlReNwQjvIySCgzvnVYvENEx5R+h2jFprfIhEu5Rzjr3yI9I9t702QtmcBHDiIOxwVFFogsFCGJBYgEmlivLzMjeW3lc3JmY4Rs2dbkia7rmp/j/VcquvYxQg1A0bFc4IotdCxhMQhIQBytmHUmIeA0I1jkkASQ07SxXQRzoRDbxWlK9gqxwJQO63uC1NBgvcsTzkODPWzc26w8svGSy6LkSiq5+Aqu15JLvOipUPIgKXn2FD2uHj3hfgChdIQNPQdYDAAAAABJRU5ErkJggg=="
-    };
+Создать новый проект
+![](assets/ru/firebase-reg-1.png)
+
+
+Указать название проекта, выбрать домен
+![](assets/ru/firebase-reg-2.png)
+
+
+Проект будет создан
+![](assets/ru/firebase-reg-3.png)
+
+
+На странице проекта навести на колесо в разделе Общая информация (Overview) и перейти в настройки проекта
+![](assets/ru/firebase-reg-4.png)
+
+
+Открыть Общие настройки, прокрутить вниз и нажать на кнопку создания приложения
+![](assets/ru/firebase-reg-5.png)
+
+
+Указать псевдоним приложения
+![](assets/ru/firebase-reg-6.png)
+
+
+Получить сгенерированный скрипт service worker
+![](assets/ru/firebase-reg-7.png)
+
+
+Конфиг service worker приложения останется доступен на странице Настройки/Общие настройки
+**Параметры этого конфига потребуются на следующих шагах для настройки виджета**
+![](assets/ru/firebase-reg-8.png)
+
+
+В разделе Cloud Messaging получить api_key и senderID
+![](assets/ru/firebase-reg-9.png)
 </details>
 
-где
-enable - настройка включения/выключения функционала; Значения: true, false
-firebaseConfig - параметры подключений к платформе firebase, настройка service worker;
-title - заголовок, который будет видеть клиент в пуш-уведомлении;
-icon - иконка пуш-уведомления.
+Скачайте [firebase-messaging-sw.js](https://github.com/ThreadsMobileLib/threads-sdk-web-gate/blob/master/examples/WebPush/firebase-messaging-sw.js).
+Файл `firebase-messaging-sw.js` разместите в корне сайта. Данный скрипт должен быть доступен по адресу `http(s)://****/firebase-messaging-sw.js` (`****` - домен на котором осуществляете настройки).
 
-Аналогично настройте секцию `pushNotification` в `settings.json`.
-Передайте аккаунт-менеджеру sender_id и api_key из вашего проекта Firebase (указаны в разделе Cloud Messaging) 
+Настройте файл. В `config` приведите параметры service worker для виджета:
+```javascript
+var config = {
+    "enable": false,
+    "firebaseConfig": {
+        "apiKey": "FIX_ME",
+        "authDomain": "FIX_ME",
+        "databaseURL": "FIX_ME",
+        "projectId": "FIX_ME",
+        "storageBucket": "FIX_ME",
+        "messagingSenderId": "FIX_ME",
+        "appId": "FIX_ME"
+    },
+    "title": "Threads Chat",
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABOUExURUxpcejo6Onp6enp6eTk5Onp6erq6uvr6+np6eXl5enp6ejo6Ovr6+zs7Ojo6Onp6ePj4+rq6pmZmdPT06enp+bm5p6entra2sLCwrm5ueNweO8AAAARdFJOUwBOiKUcunn78A3dnllqk8XwLooT9gAAAWVJREFUSMedllmShSAMRXHggYq+YhLd/0bbtluLJODA/SR1yiQmFxgj6tTEeymE7PmkOnarduRCRxJ8bK+BQSc05KGuljopWWfyqzLADlUp4qMv9aFJNfpGDUqu++pbfSHT6AdqXtSRqKeiUR+Cp6dn3zrcXW+d2eQs6fVRTo0CYQd2KKBQ/T8l6CNhNqdmxMi/2UFz5SNiY1BFw/4R9O3VAK0o/PuZEZ3NEJlReNwQjvIySCgzvnVYvENEx5R+h2jFprfIhEu5Rzjr3yI9I9t702QtmcBHDiIOxwVFFogsFCGJBYgEmlivLzMjeW3lc3JmY4Rs2dbkia7rmp/j/VcquvYxQg1A0bFc4IotdCxhMQhIQBytmHUmIeA0I1jkkASQ07SxXQRzoRDbxWlK9gqxwJQO63uC1NBgvcsTzkODPWzc26w8svGSy6LkSiq5+Aqu15JLvOipUPIgKXn2FD2uHj3hfgChdIQNPQdYDAAAAABJRU5ErkJggg=="
+};
+```
+
+где:
+- `enable` - настройка включения/выключения функционала (значения: `true`, `false`);
+- `firebaseConfig` - параметры подключений к платформе firebase, настройка service worker;
+- `title` - заголовок, который будет видеть клиент в пуш-уведомлении;
+- `icon` - иконка пуш-уведомления в формате base64.
+
+Аналогично настройте секцию `pushNotification` в файле конфигурации `settings.json`.
+
+Передайте вашему аккаунт-менеджеру занчения `sender_id` (`Идентификатор отправителя`) и `api_key` (`Ключ`) из вашего проекта Firebase (указаны в разделе `Cloud Messaging`) 
+
+
+#### 8. Скачайте файл [web-notification-sw.js](../demo/WebPush/web-notification-sw.js)
+
+Файл `web-notification-sw.js` разместите в корне сайта. Данный скрипт должен быть доступен по адресу `http(s)://****/web-notification-sw.js` (`****` - домен на котором осуществляете настройки).
+Это необходимо для работы браузерных веб-нотификаций о получении новых сообщений в виджете.
+
 
 #### 9. Встройте виджет на сайт: 
- Подключите виджет: 
- Для установки виджета Чата на странице, где он будет отображаться, необходимо перед закрывающим тегом `</body>` добавить следующий инициализационный код: 
 
-```
+Подключите виджет: 
+Для установки виджета Чата на странице, где он будет отображаться, необходимо перед закрывающим тегом `</body>` добавить следующий инициализационный код:
+```javascript
 <!-- BEGIN THREADS {literal} -->
 <script type="text/javascript">
 !function(configurationFile,e){"use strict";configurationFile=configurationFile||"/settings.json";var t=window,a=document;t.ThreadsWidget={isDummy:!0},["hideInvite","version","commitHash","showChat","hideChat","onHideChat","onScenarios","onLoad"].forEach(function(e){t.ThreadsWidget[e]=function(a){var n,i,o;n=e,i=a,o=setInterval(function(){t.ThreadsWidget&&!t.ThreadsWidget.isDummy&&(clearInterval(o),t.ThreadsWidget[n]&&t.ThreadsWidget[n](i))},100)}});var n,i=(n=new XMLHttpRequest,function(e,t,a,i){n.onreadystatechange=function(){if(4===n.readyState)if(200===this.status)a(n.response);else{if("function"!=typeof i)throw new Error(n.response);i(n)}},n.open(e,t),n.send()});function o(t){t.webchat&&(t.webchat.filename=t.filename),t.style&&(t.webchat.style=t.style),e&&"string"==typeof e&&(t.webchat.currentLocale=e),e&&"object"==typeof e&&(e.locale&&"string"==typeof e.locale&&(t.webchat.currentLocale=e.locale),e.unavailable&&"boolean"==typeof e.unavailable&&(t.webchat.isUnavailableOnStart=e.unavailable));try{sessionStorage.setItem("__threadsWidget",JSON.stringify(t.webchat))}catch(e){window.__threadsWidget=JSON.stringify(t.webchat)}if(t.filename){var n=a.createElement("script");n.type="text/javascript",n.async=!0,n.src=t.filename;var i=a.getElementsByTagName("script")[0];i?i.parentNode.insertBefore(n,i):a.body.appendChild(n)}else console&&console.error("Invalid bundle")}function s(){i("GET",configurationFile+"?rnd="+Math.random(),function(e){var t=JSON.parse(e);o(t)})}"complete"===a.readyState?s():t.attachEvent?t.attachEvent("onload",s):t.addEventListener("load",s,!1)}("settings.json",{});
@@ -131,14 +171,13 @@ icon - иконка пуш-уведомления.
 <!-- {/literal} END THREADS -->
 ```
 
- Подключите файл настроек:
- Скопируйте файл `settings.json` в тот же каталог, где расположен Чат.
- Обратите внимание: в самом конце скрипта инициализации задается путь к файлу настроек `settings.json`: 
-... (`settings.json`);
- Обязательно установите в качестве значения этого параметра абсолютный путь к файлу настроек от корня вашего сайта. Пример: 
-(`/your/path/to/settings.json`)
- В корне сайта разместите файл "web-notification-sw.js" для работы браузнерных веб-нотификаций и файл "firebase-messaging-sw.js" для работы WebPush. Скрипты должны быть доступны по адресам http(s):/****/web-notification-sw.js и http(s):/****/firebase-messaging-sw.js (**** - домен на котором осуществляете настройки)
- Сохраните изменения и опубликуйте их на своем сайте
+Подключите файл настроек, указав в самом конце скрипта инициализации путь к `settings.json`: 
+```
+...}("settings.json");
+```
+Обязательно установите в качестве значения этого параметра абсолютный путь к файлу настроек от корня вашего сайта. Пример: `("/your/path/to/settings.json")`
+
+Сохраните изменения и опубликуйте их на своем сайте
 
 #### 10. Откройте страницу на своем сайте
 
