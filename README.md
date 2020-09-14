@@ -77,9 +77,16 @@
 Создайте проект Firebase для работы пушей (Вставить инструкцию со скринами из документа )
 Настройте файл `firebase-messaging-sw.js` по этому шаблону <ссылка на пример в github> файл нужно положить в папку с `settings.json`, который содержит стандартные настройки + `skins` + `WebPush`, об этом же `settings.json` идет информация в п.5. В config приведите параметры service worker для виджета:
  
-Пример:
 <details>
-    <summary>Пример развернуть</summary>
+    <summary>Создайте проект Firebase для работы пушей:</summary>
+    <img src="assets/ru/skin-palette.png">
+    В примере файла параметры отвечают за цвета следующих элементов
+    <img src="assets/ru/skin-palette.png">
+    В примере файла параметры отвечают за цвета следующих элементов
+</details>
+
+<details>
+    <summary>Пример:</summary>
 
     var config = {
         "enable": false,
