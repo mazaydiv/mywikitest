@@ -79,10 +79,18 @@
  
 <details>
     <summary>Создайте проект Firebase для работы пушей:</summary>
+
     <img src="assets/ru/skin-palette.png">
     В примере файла параметры отвечают за цвета следующих элементов
+
     <img src="assets/ru/skin-palette.png">
     В примере файла параметры отвечают за цвета следующих элементов
+
+    В примере файла параметры отвечают за цвета следующих элементов:
+    ![Цвета в skin](assets/ru/skin-palette.png)
+
+    В примере файла параметры отвечают за цвета следующих элементов:
+    ![Цвета в skin](assets/ru/skin-palette.png)
 </details>
 
 <details>
