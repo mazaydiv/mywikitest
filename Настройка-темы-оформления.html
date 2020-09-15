@@ -1,0 +1,3102 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Содержание</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h4 id="содержание">Содержание</h4>
+<ul>
+<li><a href="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D0%B0-webchattheme-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%B8-settingsjson">Структура раздела webchat.theme файла конфигурации settings.json</a></li>
+<li><a href="#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D1%81%D0%B5%D0%BA%D1%86%D0%B8%D0%B8-theme">Структура секции <code>theme</code></a></li>
+<li><a href="#%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D1%82%D0%B5%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8">Простой способ темизации</a>
+<ul>
+<li><a href="#%D1%82%D0%B5%D0%BC%D0%B0-mfms">Тема &quot;mfms&quot;</a></li>
+<li><a href="#%D1%82%D0%B5%D0%BC%D0%B0-threadsim">Тема &quot;threadsim&quot;</a></li>
+<li><a href="#%D1%82%D0%B5%D0%BC%D0%B0-halcyon">Тема &quot;halcyon&quot;</a></li>
+<li><a href="#%D1%82%D0%B5%D0%BC%D0%B0-adaptive">Тема &quot;adaptive&quot;</a></li>
+</ul>
+</li>
+<li><a href="#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B3%D0%BE-%D0%B2%D0%B8%D0%B4%D0%B0-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%BE%D0%B2">Настройка внешнего вида компонентов</a>
+<ul>
+<li><a href="#global">Global</a></li>
+<li><a href="#attachmentbutton">AttachmentButton</a></li>
+<li><a href="#backbutton">BackButton</a></li>
+<li><a href="#button">Button</a></li>
+<li><a href="#chat">Chat</a></li>
+<li><a href="#chatbody">ChatBody</a></li>
+<li><a href="#chatbutton">ChatButton</a></li>
+<li><a href="#chatheader">ChatHeader</a></li>
+<li><a href="#chatinput">ChatInput</a></li>
+<li><a href="#chatinvite">ChatInvite</a></li>
+<li><a href="#chatmessagesbadge">ChatMessagesBadge</a></li>
+<li><a href="#chatpoll">ChatPoll</a></li>
+<li><a href="#chatwelcome">ChatWelcome</a></li>
+<li><a href="#closebutton">CloseButton</a></li>
+<li><a href="#datebar">DateBar</a></li>
+<li><a href="#emoji">Emoji</a></li>
+<li><a href="#emojibutton">EmojiButton</a></li>
+<li><a href="#inputtext">InputText</a></li>
+<li><a href="#link">Link</a></li>
+<li><a href="#messageclient">MessageClient</a></li>
+<li><a href="#messageoperator">MessageOperator</a></li>
+<li><a href="#messagetime">MessageTime</a></li>
+<li><a href="#offline">Offline</a></li>
+<li><a href="#preloader">Preloader</a></li>
+<li><a href="#preview">Preview</a></li>
+<li><a href="#quickquestions">QuickQuestions</a></li>
+<li><a href="#scrollbutton">ScrollButton</a></li>
+<li><a href="#scrollbuttonbadge">ScrollButtonBadge</a></li>
+<li><a href="#sociallinks">SocialLinks</a></li>
+<li><a href="#typing">Typing</a></li>
+<li><a href="#webview">WebView</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="структура-раздела-webchattheme-файла-конфигурации-settingsjson">Структура раздела webchat.theme файла конфигурации settings.json</h3>
+<p>Настройки темизации находятся в секции <code>theme</code> конфигурационного файла <code>settings.json</code>. Структура секции выглядит следующим образом:</p>
+<pre><code class="language-json"><div>{
+    <span class="hljs-attr">"skin"</span>: {
+       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"mfms"</span>,
+       <span class="hljs-attr">"colorMain"</span>: <span class="hljs-string">"#008aff"</span>,
+       <span class="hljs-attr">"colorSecond"</span>: <span class="hljs-string">"#05b8ff"</span>,
+       <span class="hljs-attr">"colorLines"</span>: <span class="hljs-string">"#dee4e9"</span>,
+       <span class="hljs-attr">"colorSubText"</span>: <span class="hljs-string">"#6e6e6e"</span>,
+       <span class="hljs-attr">"colorText"</span>: <span class="hljs-string">"#000"</span>,
+       <span class="hljs-attr">"colorBackground"</span>: <span class="hljs-string">"#fff"</span>, 
+       <span class="hljs-attr">"width"</span>: <span class="hljs-string">"366px"</span>,
+       <span class="hljs-attr">"height"</span>: <span class="hljs-string">"420px"</span>
+     },
+    <span class="hljs-attr">"fonts"</span>: [
+        <span class="hljs-string">"/font1.css"</span>,    
+        <span class="hljs-string">"https://example.com/font2.css"</span>    
+    ],
+    <span class="hljs-attr">"desktop"</span>: {
+        <span class="hljs-attr">"Global"</span>: {},
+        <span class="hljs-attr">"component1"</span>: {},
+        <span class="hljs-attr">"component2"</span>: {},
+        <span class="hljs-attr">"componentN"</span>: {}
+    },
+    <span class="hljs-attr">"mobile"</span>: {
+        <span class="hljs-attr">"Global"</span>: {},
+        <span class="hljs-attr">"component1"</span>: {},
+        <span class="hljs-attr">"component2"</span>: {},
+        <span class="hljs-attr">"componentN"</span>: {}
+    },
+    <span class="hljs-attr">"mobileS"</span>: {
+        <span class="hljs-attr">"Global"</span>: {},
+        <span class="hljs-attr">"component1"</span>: {},
+        <span class="hljs-attr">"component2"</span>: {},
+        <span class="hljs-attr">"componentN"</span>: {}
+    },
+    <span class="hljs-attr">"mobileM"</span>: {
+        <span class="hljs-attr">"Global"</span>: {},
+        <span class="hljs-attr">"component1"</span>: {},
+        <span class="hljs-attr">"component2"</span>: {},
+        <span class="hljs-attr">"componentN"</span>: {}
+    },
+    <span class="hljs-attr">"mobileL"</span>: {
+        <span class="hljs-attr">"Global"</span>: {},
+        <span class="hljs-attr">"component1"</span>: {},
+        <span class="hljs-attr">"component2"</span>: {},
+        <span class="hljs-attr">"componentN"</span>: {}
+    },
+    <span class="hljs-attr">"tablet"</span>: {
+        <span class="hljs-attr">"Global"</span>: {},
+        <span class="hljs-attr">"component1"</span>: {},
+        <span class="hljs-attr">"component2"</span>: {},
+        <span class="hljs-attr">"componentN"</span>: {}
+    }
+}
+</div></code></pre>
+<p><strong>Внимание!</strong></p>
+<p>Если не стоит задача детальной настройки внешнего вида Чата и будет достаточно изменить цвета и размер виджета, чтобы он соответствовал внешнему виду сайта, то рекоммендуется воспользоваться <a href="#%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D1%82%D0%B5%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8">упрощенным способом темизации</a>.</p>
+<h3 id="структура-секции-theme">Структура секции <code>theme</code></h3>
+<ul>
+<li><code>skin</code> - настройки упрощенной темизации. Секция позволяет выбрать одну из предустановленных тем и переопределить базовые настройки отображения темы. Не является обязательной. См. <a href="#%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D1%82%D0%B5%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8">Простой способ темизации</a></li>
+<li><code>fonts</code> - массив ссылок на CSS-файлы веб-шрифтов. Это могут быть ссылки на внешние источники (например, Google Fonts), ссылки на файлы на том же домене (абсолютные или отнросительные) или внедренные данные в формате <code>data: URI</code>. Не является обязательной.</li>
+<li><code>desktop</code> - секция служит для стилизации виджета для отображения в настольных браузерах. Наследует стили секции <code>skin</code> и позволяет переопределить их. Не является обязательной.</li>
+<li><code>mobile</code> - секция служит для стилизации виджета для отображения в мобильных браузерах. Наследует стили секции <code>desktop</code> и позволяет переопределить их. Не является обязательной.</li>
+<li><code>mobileS</code> - стили этой секции будут применяться для мобильных устройств с шириной экрана до 320px. Наследует стили секции <code>mobile</code> и позволяет переопределить их. Не является обязательной.</li>
+<li><code>mobileM</code> - стили этой секции будут применяться для мобильных устройств с шириной экрана от 321px до 375px. Наследует стили секции <code>mobile</code> и позволяет переопределить их. Не является обязательной.</li>
+<li><code>mobileL</code> - стили этой секции будут применяться для мобильных устройств с шириной экрана от 376px до 425px. Наследует стили секции <code>mobile</code> и позволяет переопределить их. Не является обязательной.</li>
+<li><code>tablet</code> - стили этой секции будут применяться для мобильных устройств с шириной экрана от 426px до 1023px. Наследует стили секции <code>mobile</code> и позволяет переопределить их. Не является обязательной.</li>
+</ul>
+<p><strong>Внимание!</strong></p>
+<p>Для удобного использования виджета на мобильных устройствах в секции <code>mobile</code> включена кнопка отправки, по умолчанию - белого цвета.
+Рекомендуем настроить кнопку для соответствия вашему гайдлайну (компонент <a href="#chatinput">ChatInput</a>).</p>
+<h3 id="простой-способ-темизации">Простой способ темизации</h3>
+<p>Настройки темизации находятся в секции <code>theme</code> в подсекции <code>skin</code>. Пример секции выглядит следующим образом:</p>
+<pre><code class="language-json"><div>{
+    <span class="hljs-attr">"skin"</span>: {
+       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"mfms"</span>,
+       <span class="hljs-attr">"colorMain"</span>: <span class="hljs-string">"#008aff"</span>,
+       <span class="hljs-attr">"colorSecond"</span>: <span class="hljs-string">"#05b8ff"</span>,
+       <span class="hljs-attr">"colorLines"</span>: <span class="hljs-string">"#dee4e9"</span>,
+       <span class="hljs-attr">"colorSubText"</span>: <span class="hljs-string">"#6e6e6e"</span>,
+       <span class="hljs-attr">"colorText"</span>: <span class="hljs-string">"#000"</span>,
+       <span class="hljs-attr">"colorBackground"</span>: <span class="hljs-string">"#fff"</span>,
+       <span class="hljs-attr">"width"</span>: <span class="hljs-string">"366px"</span>,
+       <span class="hljs-attr">"height"</span>: <span class="hljs-string">"420px"</span>
+     }
+}
+</div></code></pre>
+<p>Секция <code>skin</code> содержит следующие поля (любое из этих полей не является обязательным, более детальное описание полей доступно ниже для каждой темы):</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Описание</th>
+<th>Значение по умолчанию</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Название темы оформления. Список доступных тем:<br><code>mfms</code>, <code>threadsim</code>, <code>halcyon</code>, <code>adaptive</code></td>
+<td><code>&quot;threadsim&quot;</code></td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td>Ширина виджета</td>
+<td><code>&quot;366px&quot;</code></td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td>Высота виджета</td>
+<td><code>&quot;420px&quot;</code></td>
+</tr>
+<tr>
+<td><code>colorMain</code></td>
+<td>Основной базовый цвет</td>
+<td><code>&quot;#008aff&quot;</code></td>
+</tr>
+<tr>
+<td><code>colorSecond</code></td>
+<td>Дополнительный базовый цвет</td>
+<td><code>&quot;#05b8ff&quot;</code></td>
+</tr>
+<tr>
+<td><code>colorLines</code></td>
+<td>Цвет линий и сообщений оператора</td>
+<td><code>&quot;#dee4e9&quot;</code></td>
+</tr>
+<tr>
+<td><code>colorSubText</code></td>
+<td>Цвет дополнительного текста</td>
+<td><code>&quot;#6e6e6e&quot;</code></td>
+</tr>
+<tr>
+<td><code>colorText</code></td>
+<td>Цвет текста</td>
+<td><code>&quot;#000000&quot;</code></td>
+</tr>
+<tr>
+<td><code>colorBackground</code></td>
+<td>Фон виджета</td>
+<td><code>&quot;#ffffff&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="тема-mfms">Тема &quot;mfms&quot;</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/theme_mfms.png" alt="Тема mfms"></p>
+<table>
+<thead>
+<tr>
+<th>Цвет</th>
+<th>Элементы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>colorMain</code></td>
+<td>Фон стартовой кнопки, фон сообщений клиента, фон поля ввода сообщения, границы и цвет текста кнопок</td>
+</tr>
+<tr>
+<td><code>colorSecond</code></td>
+<td>Фон области предпросмотра вложений и цитируемых сообщений, границы и цвет текста кнопок при наведении</td>
+</tr>
+<tr>
+<td><code>colorLines</code></td>
+<td>Цвет линий, фон сообщений оператора, границы текстовых полей</td>
+</tr>
+<tr>
+<td><code>colorSubText</code></td>
+<td>Цвет кнопки скрытия чата, цвет замещающего текста текстовых полей, цвет системных сообщений</td>
+</tr>
+<tr>
+<td><code>colorText</code></td>
+<td>Цвет текста, цвет текста в шапке</td>
+</tr>
+<tr>
+<td><code>colorBackground</code></td>
+<td>Фон виджета, цвет текста области предпросмотра вложений и цитируемых сообщений, цвет текста поля ввода сообщения, фон шапки</td>
+</tr>
+</tbody>
+</table>
+<h4 id="тема-threadsim">Тема &quot;threadsim&quot;</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/theme_threadsim.png" alt="Тема threadsim"></p>
+<table>
+<thead>
+<tr>
+<th>Цвет</th>
+<th>Элементы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>colorMain</code></td>
+<td>Фон стартовой кнопки, фон сообщений клиента, фон кнопок, цвет текста области предпросмотра вложений и цитируемых сообщений</td>
+</tr>
+<tr>
+<td><code>colorSecond</code></td>
+<td>Фон области предпросмотра вложений и цитируемых сообщений, фон кнопок при наведении</td>
+</tr>
+<tr>
+<td><code>colorLines</code></td>
+<td>Цвет линий, фон сообщений оператора, границы текстовых полей</td>
+</tr>
+<tr>
+<td><code>colorSubText</code></td>
+<td>Цвет кнопки скрытия чата, цвет замещающего текста текстовых полей, цвет системных сообщений</td>
+</tr>
+<tr>
+<td><code>colorText</code></td>
+<td>Цвет текста, цвет текста поля ввода сообщения, цвет текста в шапке</td>
+</tr>
+<tr>
+<td><code>colorBackground</code></td>
+<td>Фон виджета, фон поля ввода сообщения, фон шапки</td>
+</tr>
+</tbody>
+</table>
+<h4 id="тема-halcyon">Тема &quot;halcyon&quot;</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/theme_halcyon.png" alt="Тема halcyon"></p>
+<table>
+<thead>
+<tr>
+<th>Цвет</th>
+<th>Элементы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>colorMain</code></td>
+<td>Фон стартовой кнопки, фон сообщений клиента, фон поля ввода сообщения, границы и цвет текста кнопок</td>
+</tr>
+<tr>
+<td><code>colorSecond</code></td>
+<td>Фон области предпросмотра вложений и цитируемых сообщений, границы и цвет текста кнопок при наведении</td>
+</tr>
+<tr>
+<td><code>colorLines</code></td>
+<td>Цвет линий, фон сообщений оператора, границы текстовых полей</td>
+</tr>
+<tr>
+<td><code>colorSubText</code></td>
+<td>Цвет кнопки скрытия чата, цвет замещающего текста текстовых полей, цвет системных сообщений</td>
+</tr>
+<tr>
+<td><code>colorText</code></td>
+<td>Цвет текста, цвет текста в шапке</td>
+</tr>
+<tr>
+<td><code>colorBackground</code></td>
+<td>Фон виджета, цвет текста области предпросмотра вложений и цитируемых сообщений, цвет текста поля ввода сообщения, фон шапки</td>
+</tr>
+</tbody>
+</table>
+<h4 id="тема-adaptive">Тема &quot;adaptive&quot;</h4>
+<p>Особенностью данной темы является то, что окно Чата по высоте соответствует высоте области просмотра браузера.</p>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/theme_adaptive.png" alt="Тема adaptive"></p>
+<table>
+<thead>
+<tr>
+<th>Цвет</th>
+<th>Элементы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>colorMain</code></td>
+<td>Фон стартовой кнопки, фон сообщений клиента, фон кнопок, цвет текста области предпросмотра вложений и цитируемых сообщений, фон шапки</td>
+</tr>
+<tr>
+<td><code>colorSecond</code></td>
+<td>Фон области предпросмотра вложений и цитируемых сообщений, фон кнопок при наведении</td>
+</tr>
+<tr>
+<td><code>colorLines</code></td>
+<td>Цвет линий, фон сообщений оператора, границы текстовых полей</td>
+</tr>
+<tr>
+<td><code>colorSubText</code></td>
+<td>цвет замещающего текста текстовых полей, цвет системных сообщений</td>
+</tr>
+<tr>
+<td><code>colorText</code></td>
+<td>Цвет текста, цвет текста поля ввода сообщения</td>
+</tr>
+<tr>
+<td><code>colorBackground</code></td>
+<td>Цвет кнопки скрытия чата, фон виджета, фон поля ввода сообщения, цвет текста в шапке</td>
+</tr>
+</tbody>
+</table>
+<h3 id="настройка-внешнего-вида-компонентов">Настройка внешнего вида компонентов</h3>
+<p>Для тонкой настройки внешнего вида компонентов секция <code>theme</code> имеет шесть дочерних секций с настройками отображения компонентов Чата для различных типов устройств:</p>
+<ul>
+<li><code>desktop</code> - настольные браузеры</li>
+<li><code>mobile</code> - браузеры мобильных устройств</li>
+<li><code>mobileS</code> - браузеры мобильных устройств с шириной экрана до 320px</li>
+<li><code>mobileM</code> - браузеры мобильных устройств с шириной экрана от 321px до 375px</li>
+<li><code>mobileL</code> - браузеры мобильных устройств с шириной экрана от 376px до 425px</li>
+<li><code>tablet</code> - браузеры мобильных устройств с шириной экрана от 426px до 1023px</li>
+</ul>
+<p>Каждая из этих секций может включать раздел <code>Global</code>, содержащий стили, которые будут наследоваться в стилях компонентов этой секции (и могут быть переопределены в стилях компонентов). Другими словами, если, например, в секции <code>desktop/Global</code> задать цвет текста (свойство <code>color</code>), то этот цвет будет использоваться всеми компонентами секции <code>desktop</code>, если в стилях компонента не задан другой цвет. Если установить значение свойства <code>color</code>, например у компонента <code>desktop/ChatInput</code>, то компонент будет использовать это переопределенное значение. Цепочка наследования и переопределения стилей в общем виде выглядит так:</p>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/theme_over.svg" alt="Наследование стилей"></p>
+<p>Большинство настроек представляют из себя обычные CSS-свойства. Ниже приведены:</p>
+<ul>
+<li>список компонентов для редактирования</li>
+<li>соответствие свойств настроек компонентов с CSS-свойствами</li>
+</ul>
+<h4 id="global">Global</h4>
+<p>Базовые свойства. Применяются ко всем компонентам, если не перекрываются свойствами компонента</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+</tbody>
+</table>
+<h4 id="attachmentbutton">AttachmentButton</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/AttachmentButton.png" alt="AttachmentButton"></p>
+<p>Кнопка прикрепления вложения</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>opacity</td>
+<td><a href="http://htmlbook.ru/css/opacity">opacity</a></td>
+<td>Непрозрачность</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы</td>
+</tr>
+<tr>
+<td>borderLeftWidth</td>
+<td><a href="http://htmlbook.ru/css/border-left-width">border-left-width</a></td>
+<td>Толщина границы слева</td>
+</tr>
+<tr>
+<td>backgroundSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер изображения на кнопке</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота кнопки</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина кнопки</td>
+</tr>
+<tr>
+<td>top</td>
+<td><a href="http://htmlbook.ru/css/top">top</a></td>
+<td>Отступ сверху относительно родительского компонента</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ справа относительно родительского компонента</td>
+</tr>
+<tr>
+<td>left</td>
+<td><a href="http://htmlbook.ru/css/left">left</a></td>
+<td>Отступ слева относительно родительского компонента</td>
+</tr>
+<tr>
+<td>backgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению</td>
+</tr>
+<tr>
+<td>backgroundImageHover</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению (при наведении)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="backbutton">BackButton</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/BackButton.png" alt="BackButton"></p>
+<p>Кнопка &quot;Назад&quot; в шапке чата</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>top</td>
+<td><a href="http://htmlbook.ru/css/top">top</a></td>
+<td>Отступ кнопки от края чата сверху</td>
+</tr>
+<tr>
+<td>left</td>
+<td><a href="http://htmlbook.ru/css/left">left</a></td>
+<td>Отступ кнопки от края чата слева</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ кнопки от края чата справа</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина кнопки</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота кнопки</td>
+</tr>
+<tr>
+<td>backgroundSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер изображения</td>
+</tr>
+<tr>
+<td>backgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению</td>
+</tr>
+<tr>
+<td>backgroundImageHover</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению (при наведении)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="button">Button</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/Button.png" alt="Button"></p>
+<p>Кнопки в формах</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы</td>
+</tr>
+<tr>
+<td>maxHeight</td>
+<td><a href="http://htmlbook.ru/css/max-height">max-height</a></td>
+<td>Максимальная высота</td>
+</tr>
+<tr>
+<td>maxWidth</td>
+<td><a href="http://htmlbook.ru/css/max-width">max-width</a></td>
+<td>Максимальная ширина</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>backgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению</td>
+</tr>
+<tr>
+<td>backgroundPosition</td>
+<td><a href="http://htmlbook.ru/css/background-position">background-position</a></td>
+<td>Позиционирование изображения</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Скругление углов</td>
+</tr>
+<tr>
+<td>borderWidth</td>
+<td><a href="http://htmlbook.ru/css/border-width">border-width</a></td>
+<td>Толщина границы</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы</td>
+</tr>
+<tr>
+<td>borderStyle</td>
+<td><a href="http://htmlbook.ru/css/border-style">border-style</a></td>
+<td>Стиль границы</td>
+</tr>
+<tr>
+<td>margin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы</td>
+</tr>
+<tr>
+<td>backgroundImageHover</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению (при наведении)</td>
+</tr>
+<tr>
+<td>borderColorHover</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы (при наведении)</td>
+</tr>
+<tr>
+<td>fontSizeHover</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта (при наведении)</td>
+</tr>
+<tr>
+<td>colorHover</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста (при наведении)</td>
+</tr>
+<tr>
+<td>backgroundColorHover</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона (при наведении)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chat">Chat</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/Chat.png" alt="Chat"></p>
+<p>Общие настройки чата</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>borderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Скругление углов</td>
+</tr>
+<tr>
+<td>boxShadow</td>
+<td><a href="http://htmlbook.ru/css/box-shadow">box-shadow</a></td>
+<td>Тень</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ от правого края экрана</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td><a href="http://htmlbook.ru/css/bottom">bottom</a></td>
+<td>Отступ от нижнего края экрана</td>
+</tr>
+<tr>
+<td>scrollbarWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина полосы прокрутки</td>
+</tr>
+<tr>
+<td>scrollbarBackgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет полосы прокрутки</td>
+</tr>
+<tr>
+<td>scrollbarBorderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Скругление углов полосы прокрутки</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chatbody">ChatBody</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ChatBody.png" alt="ChatBody"></p>
+<p>Область переписки</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>boxShadow</td>
+<td><a href="http://htmlbook.ru/css/box-shadow">box-shadow</a></td>
+<td>Тень</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chatbutton">ChatButton</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ChatButton.png" alt="ChatButton"></p>
+<p>Стартовая кнопка</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backgroundSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер изображения на кнопке</td>
+</tr>
+<tr>
+<td>backgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению на кнопке</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Фон кнопки</td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Скругление углов кнопки</td>
+</tr>
+<tr>
+<td>boxShadow</td>
+<td><a href="http://htmlbook.ru/css/box-shadow">box-shadow</a></td>
+<td>Тень кнопки</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота кнопки</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина кнопки</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ от правого края экрана</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td><a href="http://htmlbook.ru/css/bottom">bottom</a></td>
+<td>Отступ от нижнего края экрана</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chatheader">ChatHeader</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ChatHeader.png" alt="ChatHeader"></p>
+<p>Шапка чата</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>welcomeFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта &quot;Добро пожаловать в чат!&quot;</td>
+</tr>
+<tr>
+<td>welcomeFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта &quot;Добро пожаловать в чат!&quot;</td>
+</tr>
+<tr>
+<td>welcomeFontColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет шрифта &quot;Добро пожаловать в чат!&quot;</td>
+</tr>
+<tr>
+<td>searchingFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта &quot;Поиск оператора&quot;</td>
+</tr>
+<tr>
+<td>searchingFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта &quot;Поиск оператора&quot;</td>
+</tr>
+<tr>
+<td>searchingColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет шрифта &quot;Поиск оператора&quot;</td>
+</tr>
+<tr>
+<td>spinnerBackgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Изображение для прелоадера</td>
+</tr>
+<tr>
+<td>borderBottom</td>
+<td><a href="http://htmlbook.ru/css/border-bottom">border-bottom</a></td>
+<td>Нижняя граница компонента</td>
+</tr>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы</td>
+</tr>
+<tr>
+<td>align</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание содержимого блока</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>avatarWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина аватара</td>
+</tr>
+<tr>
+<td>avatarHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота аватара</td>
+</tr>
+<tr>
+<td>agentNameColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет имени агента</td>
+</tr>
+<tr>
+<td>agentNameFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта имени агента</td>
+</tr>
+<tr>
+<td>agentNameFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта имени агента</td>
+</tr>
+<tr>
+<td>agentNameMaxWidth</td>
+<td><a href="http://htmlbook.ru/css/max-width">max-width</a></td>
+<td>Максимальная ширина имени агента</td>
+</tr>
+<tr>
+<td>agentInfoColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет дополнительной информации</td>
+</tr>
+<tr>
+<td>agentInfoFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта дополнительной информации</td>
+</tr>
+<tr>
+<td>agentInfoFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта дополнительной информации</td>
+</tr>
+<tr>
+<td>agentInfoMaxWidth</td>
+<td><a href="http://htmlbook.ru/css/max-width">max-width</a></td>
+<td>Максимальная ширина дополнительной информации</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chatinput">ChatInput</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ChatInput.png" alt="ChatInput"></p>
+<p>Поле ввода сообщения</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>submitButtonOpacity</td>
+<td><a href="http://htmlbook.ru/css/opacity">opacity</a></td>
+<td>Непрозрачность кнопки отправки сообщения</td>
+</tr>
+<tr>
+<td>submitButtonDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения кнопки отправки сообщения</td>
+</tr>
+<tr>
+<td>submitButtonRight</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ справа кнопки отправки сообщения относительно родительского компонента</td>
+</tr>
+<tr>
+<td>submitButtonTop</td>
+<td><a href="http://htmlbook.ru/css/top">top</a></td>
+<td>Отступ сверху кнопки отправки сообщения относительно родительского компонента</td>
+</tr>
+<tr>
+<td>submitButtonBackgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению кнопки отправки сообщения</td>
+</tr>
+<tr>
+<td>limiterMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы ограничителя компонента</td>
+</tr>
+<tr>
+<td>limiterWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина ограничителя компонента</td>
+</tr>
+<tr>
+<td>limiterMaxHeight</td>
+<td><a href="http://htmlbook.ru/css/max-height">max-height</a></td>
+<td>Максимально допустимая высота ограничителя компонента</td>
+</tr>
+<tr>
+<td>wrapperHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота компонента</td>
+</tr>
+<tr>
+<td>wrapperBorderTop</td>
+<td><a href="http://htmlbook.ru/css/border-top">border-top</a></td>
+<td>Верхняя граница компонента</td>
+</tr>
+<tr>
+<td>wrapperBorder</td>
+<td><a href="http://htmlbook.ru/css/border">border</a></td>
+<td>Граница компонента</td>
+</tr>
+<tr>
+<td>wrapperPadding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы компонента</td>
+</tr>
+<tr>
+<td>wrapperBackgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона компонента</td>
+</tr>
+<tr>
+<td>placeholderColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет замещающего текста</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона поля ввода</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста в поле ввода</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>fontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта</td>
+</tr>
+<tr>
+<td>borderTopWidth</td>
+<td><a href="http://htmlbook.ru/css/border-top-width">border-top-width</a></td>
+<td>Толщина границы сверху</td>
+</tr>
+<tr>
+<td>borderRightWidth</td>
+<td><a href="http://htmlbook.ru/css/border-right-width">border-right-width</a></td>
+<td>Толщина границы справа</td>
+</tr>
+<tr>
+<td>borderBottomWidth</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-width">border-bottom-width</a></td>
+<td>Толщина границы снизу</td>
+</tr>
+<tr>
+<td>borderLeftWidth</td>
+<td><a href="http://htmlbook.ru/css/border-left-width">border-left-width</a></td>
+<td>Толщина границы слева</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы</td>
+</tr>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы текстового поля</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chatinvite">ChatInvite</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ChatInvite.png" alt="ChatInvite"></p>
+<p>Пузырь с приглашающим сообщением</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы</td>
+</tr>
+<tr>
+<td>maxWidth</td>
+<td><a href="http://htmlbook.ru/css/max-width">max-width</a></td>
+<td>Максимальная ширина</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона пузыря</td>
+</tr>
+<tr>
+<td>filter</td>
+<td><a href="http://htmlbook.ru/css/filter">filter</a></td>
+<td>Фильтр</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ от правого края экрана</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td><a href="http://htmlbook.ru/css/bottom">bottom</a></td>
+<td>Отступ от нижнего края экрана</td>
+</tr>
+<tr>
+<td>buttonColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет крестика кнопки &quot;Закрыть&quot;</td>
+</tr>
+<tr>
+<td>buttonBackgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона кнопки &quot;Закрыть&quot;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chatmessagesbadge">ChatMessagesBadge</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ChatMessagesBadge.png" alt="ChatMessagesBadge"></p>
+<p>Бейдж с количеством непрочитанных сообщений у кнопки чата</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>lineHeight</td>
+<td><a href="http://htmlbook.ru/css/line-height">line-height</a></td>
+<td>Высота строки</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона пузыря</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина для счетчика не превышающего 1 разряд (от 1 до 9)</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ от правого края экрана</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td><a href="http://htmlbook.ru/css/bottom">bottom</a></td>
+<td>Отступ от нижнего края экрана</td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Радиус скругления</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chatpoll">ChatPoll</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ChatPoll.png" alt="ChatPoll"></p>
+<p>Опрос</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>starDisabledOutlineImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению &quot;пустой недоступной&quot; звездочки</td>
+</tr>
+<tr>
+<td>starOutlineImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению &quot;пустой&quot; звездочки</td>
+</tr>
+<tr>
+<td>starFilledImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению &quot;заполненной&quot; звездочки</td>
+</tr>
+<tr>
+<td>starFilledRatedImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению &quot;заполненной&quot; звездочки для вывода результата</td>
+</tr>
+<tr>
+<td>starWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина звездочки</td>
+</tr>
+<tr>
+<td>starHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота звездочки</td>
+</tr>
+<tr>
+<td>textMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы текста вопроса</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста вопроса</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта текста вопроса</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта текста вопроса</td>
+</tr>
+<tr>
+<td>fontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщеность шрифта текста вопроса</td>
+</tr>
+<tr>
+<td>thanksFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщеность шрифта текста благодарности</td>
+</tr>
+<tr>
+<td>thanksColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста благодарности</td>
+</tr>
+<tr>
+<td>thanksFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта текста благодарности</td>
+</tr>
+<tr>
+<td>thanksFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта текста благодарности</td>
+</tr>
+<tr>
+<td>margin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chatwelcome">ChatWelcome</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ChatWelcome.png" alt="ChatWelcome"></p>
+<p>Экран приветствия</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина</td>
+</tr>
+<tr>
+<td>maxWidth</td>
+<td><a href="http://htmlbook.ru/css/max-width">max-width</a></td>
+<td>Максимальная ширина</td>
+</tr>
+<tr>
+<td>textAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста</td>
+</tr>
+<tr>
+<td>margin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы блока формы</td>
+</tr>
+<tr>
+<td>headerMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы заголовка формы</td>
+</tr>
+<tr>
+<td>buttonMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы кнопки</td>
+</tr>
+<tr>
+<td>buttonFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта текста кнопки</td>
+</tr>
+<tr>
+<td>textColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет основного текста</td>
+</tr>
+<tr>
+<td>textFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта основного текста</td>
+</tr>
+<tr>
+<td>textFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта основного текста</td>
+</tr>
+<tr>
+<td>textTextAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста у основного текста</td>
+</tr>
+<tr>
+<td>textMarginBottom</td>
+<td><a href="http://htmlbook.ru/css/margin-bottom">margin-bottom</a></td>
+<td>Отступ снизу у основного текста</td>
+</tr>
+<tr>
+<td>subtextColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет дополнительного текста</td>
+</tr>
+<tr>
+<td>subtextFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта дополнительного текста</td>
+</tr>
+<tr>
+<td>subtextFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта дополнительного текста</td>
+</tr>
+<tr>
+<td>subtextTextAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста у дополнительного текста</td>
+</tr>
+<tr>
+<td>subtextMarginBottom</td>
+<td><a href="http://htmlbook.ru/css/margin-bottom">margin-bottom</a></td>
+<td>Отступ снизу у дополнительного текста</td>
+</tr>
+<tr>
+<td>greetTextColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет основного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetTextFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта основного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetTextFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта основного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetTextTextAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста у основного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetTextMarginBottom</td>
+<td><a href="http://htmlbook.ru/css/margin-bottom">margin-bottom</a></td>
+<td>Отступ снизу у основного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetSubtextColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет дополнительного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetSubtextFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта дополнительного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetSubtextFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта дополнительного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetSubtextTextAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста у дополнительного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetSubtextMarginBottom</td>
+<td><a href="http://htmlbook.ru/css/margin-bottom">margin-bottom</a></td>
+<td>Отступ снизу у дополнительного текста приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetImageDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отобращения изображения приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetImageMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы изображения приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetImageBackgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению проветственного сообщения</td>
+</tr>
+<tr>
+<td>greetImageWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина изображения приветственного сообщения</td>
+</tr>
+<tr>
+<td>greetImageHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота изображения приветственного сообщения</td>
+</tr>
+<tr>
+<td>feedbackPadding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackTextAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackPlaceholderColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет замещающего текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackBackgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackBorderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Скругление углов текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackBorderTopWidth</td>
+<td><a href="http://htmlbook.ru/css/border-top-width">border-top-width</a></td>
+<td>Толщина границы сверху текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackBorderRightWidth</td>
+<td><a href="http://htmlbook.ru/css/border-right-width">border-right-width</a></td>
+<td>Толщина границы справа текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackBorderBottomWidth</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-width">border-bottom-width</a></td>
+<td>Толщина границы снизу текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackBorderLeftWidth</td>
+<td><a href="http://htmlbook.ru/css/border-left-width">border-left-width</a></td>
+<td>Толщина границы слева текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackBorderColor</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackLimiterColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Внешние отступы текста сообщения</td>
+</tr>
+<tr>
+<td>feedbackLimiterMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы текста сообщения</td>
+</tr>
+</tbody>
+</table>
+<h4 id="closebutton">CloseButton</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/CloseButton.png" alt="CloseButton"></p>
+<p>Кнопка скрытия чата</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>top</td>
+<td><a href="http://htmlbook.ru/css/top">top</a></td>
+<td>Отступ кнопки от края чата сверху</td>
+</tr>
+<tr>
+<td>left</td>
+<td><a href="http://htmlbook.ru/css/left">left</a></td>
+<td>Отступ кнопки от края чата слева</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ кнопки от края чата справа</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина кнопки</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота кнопки</td>
+</tr>
+<tr>
+<td>backgroundSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер изображения</td>
+</tr>
+<tr>
+<td>backgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению</td>
+</tr>
+<tr>
+<td>backgroundImageHover</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению (при наведении)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="datebar">DateBar</h4>
+<p>Дата сообщений</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Гарнитура</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы</td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Скругление углов</td>
+</tr>
+<tr>
+<td>boxShadow</td>
+<td><a href="http://htmlbook.ru/css/box-shadow">box-shadow</a></td>
+<td>Тень</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+</tbody>
+</table>
+<h4 id="emoji">Emoji</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/Emoji.png" alt="Emoji"></p>
+<p>Настройки эмодзи</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+</tbody>
+</table>
+<h4 id="emojibutton">EmojiButton</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/EmojiButton.png" alt="EmojiButton"></p>
+<p>Настройки кнопки эмодзи</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>opacity</td>
+<td><a href="http://htmlbook.ru/css/opacity">opacity</a></td>
+<td>Непрозрачность</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы</td>
+</tr>
+<tr>
+<td>borderLeftWidth</td>
+<td><a href="http://htmlbook.ru/css/border-left-width">border-left-width</a></td>
+<td>Толщина границы слева</td>
+</tr>
+<tr>
+<td>backgroundSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер изображения на кнопке</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота кнопки</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина кнопки</td>
+</tr>
+<tr>
+<td>top</td>
+<td><a href="http://htmlbook.ru/css/top">top</a></td>
+<td>Отступ сверху относительно родительского компонента</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://htmlbook.ru/css/right">right</a></td>
+<td>Отступ справа относительно родительского компонента</td>
+</tr>
+<tr>
+<td>left</td>
+<td><a href="http://htmlbook.ru/css/left">left</a></td>
+<td>Отступ слева относительно родительского компонента</td>
+</tr>
+<tr>
+<td>backgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению</td>
+</tr>
+<tr>
+<td>backgroundImageHover</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению (при наведении)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="inputtext">InputText</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/InputText.png" alt="InputText"></p>
+<p>Текстовые поля в формах</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>placeholderColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет замещающего текста</td>
+</tr>
+<tr>
+<td>margin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы</td>
+</tr>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы</td>
+</tr>
+<tr>
+<td>textAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста</td>
+</tr>
+<tr>
+<td>fontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Скругление углов</td>
+</tr>
+<tr>
+<td>borderTopWidth</td>
+<td><a href="http://htmlbook.ru/css/border-top-width">border-top-width</a></td>
+<td>Толщина границы сверху</td>
+</tr>
+<tr>
+<td>borderRightWidth</td>
+<td><a href="http://htmlbook.ru/css/border-right-width">border-right-width</a></td>
+<td>Толщина границы справа</td>
+</tr>
+<tr>
+<td>borderBottomWidth</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-width">border-bottom-width</a></td>
+<td>Толщина границы снизу</td>
+</tr>
+<tr>
+<td>borderLeftWidth</td>
+<td><a href="http://htmlbook.ru/css/border-left-width">border-left-width</a></td>
+<td>Толщина границы слева</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы</td>
+</tr>
+<tr>
+<td>errorBackground</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона при ошибке</td>
+</tr>
+</tbody>
+</table>
+<h4 id="link">Link</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/Link.png" alt="Link"></p>
+<p>Превью ссылки</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>containerType</td>
+<td>-</td>
+<td>Тип представления превью ссылки. Варианты: &quot;full&quot; (по умолчанию), &quot;compact&quot;.</td>
+</tr>
+<tr>
+<td>containerBorder</td>
+<td><a href="http://htmlbook.ru/css/border">border</a></td>
+<td>Граница превью ссылки</td>
+</tr>
+<tr>
+<td>outMarginRight</td>
+<td><a href="http://htmlbook.ru/css/margin-right">margin-right</a></td>
+<td>Отступ справа для превью у исходящего сообщения</td>
+</tr>
+<tr>
+<td>inMarginLeft</td>
+<td><a href="http://htmlbook.ru/css/margin-left">margin-left</a></td>
+<td>Отступ слева для превью у входящего сообщения</td>
+</tr>
+<tr>
+<td>titleFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта заголовка страницы</td>
+</tr>
+<tr>
+<td>titleFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта заголовка страницы</td>
+</tr>
+<tr>
+<td>titleColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет шрифта заголовка страницы</td>
+</tr>
+<tr>
+<td>urlFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта ссылки</td>
+</tr>
+<tr>
+<td>urlColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет шрифта ссылки</td>
+</tr>
+<tr>
+<td>descriptionFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта описания</td>
+</tr>
+<tr>
+<td>descriptionColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет шрифта описания</td>
+</tr>
+</tbody>
+</table>
+<h4 id="messageclient">MessageClient</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/MessageClient.png" alt="MessageClient"></p>
+<p>Исходящие сообщения</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>margin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы сообщения</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>borderTopLeftRadius</td>
+<td><a href="http://htmlbook.ru/css/border-top-left-radius">border-top-left-radius</a></td>
+<td>Скругление верхнего левого угла</td>
+</tr>
+<tr>
+<td>borderBottomLeftRadius</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-left-radius">border-bottom-left-radius</a></td>
+<td>Скругление нижнего левого угла</td>
+</tr>
+<tr>
+<td>borderTopRightRadius</td>
+<td><a href="http://htmlbook.ru/css/border-top-right-radius">border-top-right-radius</a></td>
+<td>Скругление верхнего правого угла</td>
+</tr>
+<tr>
+<td>borderBottomRightRadius</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-right-radius">border-bottom-right-radius</a></td>
+<td>Скругление нижнего правого угла</td>
+</tr>
+<tr>
+<td>pointerDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения указателя</td>
+</tr>
+<tr>
+<td>marginTop</td>
+<td><a href="http://htmlbook.ru/css/margin-top">margin-top</a></td>
+<td>Верхнее поле отступа</td>
+</tr>
+<tr>
+<td>quoteColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quoteFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта текста цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quoteBorderColor</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы цитируемого сообщения</td>
+</tr>
+<tr>
+<td>addQuoteImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению кнопки цитирования</td>
+</tr>
+<tr>
+<td>attachmentImageWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина прикрепленного изображения</td>
+</tr>
+<tr>
+<td>attachmentImageHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота прикрепленного изображения</td>
+</tr>
+<tr>
+<td>attachmentImagePadding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внешние отступы сообщения c прикрепленным изображением</td>
+</tr>
+<tr>
+<td>attachmentImageInfoColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет описания прикрепленного изображения</td>
+</tr>
+<tr>
+<td>attachmentImageInfoFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта описания прикрепленного изображения</td>
+</tr>
+<tr>
+<td>statusIconWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина иконки статуса прочитанности сообщения</td>
+</tr>
+<tr>
+<td>statusIconHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота иконки статуса прочитанности сообщения</td>
+</tr>
+<tr>
+<td>statusIconColor</td>
+<td>-</td>
+<td>Цвет иконки статуса прочитанности сообщения</td>
+</tr>
+<tr>
+<td>linkFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Гарнитура ссылки</td>
+</tr>
+<tr>
+<td>linkFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта ссылки</td>
+</tr>
+<tr>
+<td>linkColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста ссылки</td>
+</tr>
+<tr>
+<td>linkFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта ссылки</td>
+</tr>
+<tr>
+<td>attachmentIcon</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Пиктограмма вложения</td>
+</tr>
+<tr>
+<td>attachmentIconSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер пиктограммы вложения</td>
+</tr>
+<tr>
+<td>attachmentIconHover</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Пиктограмма вложения (при наведении)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="messageoperator">MessageOperator</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/MessageOperator.png" alt="MessageOperator"></p>
+<p>Входящие сообщения</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>notificationColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста нотификации</td>
+</tr>
+<tr>
+<td>notificationFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта нотификации</td>
+</tr>
+<tr>
+<td>notificationFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта нотификации</td>
+</tr>
+<tr>
+<td>notificationJoinDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinBorderTop</td>
+<td><a href="http://htmlbook.ru/css/border-top">border-top</a></td>
+<td>Верхняя граница нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinBorderBottom</td>
+<td><a href="http://htmlbook.ru/css/border-bottom">border-bottom</a></td>
+<td>Нижняя граница нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinPadding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренний отступ нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешний отступ нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinAvatarDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения аватара в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinAvatarWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина аватара в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinAvatarHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота аватара в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinNameDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения имени в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinNameFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта имени в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinNameFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта имени в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinTextDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения сообщения в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinTextColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinTextFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта сообщения в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinDateDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения даты в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinDateFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта даты в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationJoinDateColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет даты в нотификации &quot;Оператор присоединился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftBorderTop</td>
+<td><a href="http://htmlbook.ru/css/border-top">border-top</a></td>
+<td>Верхняя граница нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftBorderBottom</td>
+<td><a href="http://htmlbook.ru/css/border-bottom">border-bottom</a></td>
+<td>Нижняя граница нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftPadding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренний отступ нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешний отступ нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftAvatarDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения аватара в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftAvatarWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина аватара в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftAvatarHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота аватара в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftNameDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения имени в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftNameFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта имени в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftNameFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта имени в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftTextDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения сообщения в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftTextColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста сообщения в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftTextFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта сообщения в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftDateDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения даты в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftDateFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта даты в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>notificationLeftDateColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет даты в нотификации &quot;Оператор отключился&quot;</td>
+</tr>
+<tr>
+<td>margin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы сообщения</td>
+</tr>
+<tr>
+<td>avatarDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения аватара</td>
+</tr>
+<tr>
+<td>avatarImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению аватара по умолчанию</td>
+</tr>
+<tr>
+<td>avatarWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина аватара</td>
+</tr>
+<tr>
+<td>avatarHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота аватара</td>
+</tr>
+<tr>
+<td>avatarBottom</td>
+<td><a href="http://htmlbook.ru/css/bottom">bottom</a></td>
+<td>Отступ аватара снизу</td>
+</tr>
+<tr>
+<td>maxWidth</td>
+<td><a href="http://htmlbook.ru/css/max-width">max-width</a></td>
+<td>Максимальная ширина</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>borderTopLeftRadius</td>
+<td><a href="http://htmlbook.ru/css/border-top-left-radius">border-top-left-radius</a></td>
+<td>Скругление верхнего левого угла</td>
+</tr>
+<tr>
+<td>borderBottomLeftRadius</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-left-radius">border-bottom-left-radius</a></td>
+<td>Скругление нижнего левого угла</td>
+</tr>
+<tr>
+<td>borderTopRightRadius</td>
+<td><a href="http://htmlbook.ru/css/border-top-right-radius">border-top-right-radius</a></td>
+<td>Скругление верхнего правого угла</td>
+</tr>
+<tr>
+<td>borderBottomRightRadius</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-right-radius">border-bottom-right-radius</a></td>
+<td>Скругление нижнего правого угла</td>
+</tr>
+<tr>
+<td>pointerType</td>
+<td>-</td>
+<td>Форма указателя, допустимые значения: &quot;1&quot;, &quot;2&quot;</td>
+</tr>
+<tr>
+<td>pointerDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения указателя</td>
+</tr>
+<tr>
+<td>marginTop</td>
+<td><a href="http://htmlbook.ru/css/margin-top">margin-top</a></td>
+<td>Верхнее поле отступа</td>
+</tr>
+<tr>
+<td>quoteColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quoteFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта текста цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quoteBorderColor</td>
+<td><a href="http://htmlbook.ru/css/border-color">border-color</a></td>
+<td>Цвет границы цитируемого сообщения</td>
+</tr>
+<tr>
+<td>addQuoteImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению кнопки цитирования</td>
+</tr>
+<tr>
+<td>attachmentImageType</td>
+<td>-</td>
+<td>Тип представления прикрепленного изображения. Варианты: &quot;compact&quot; (по умолчанию), &quot;full&quot;.</td>
+</tr>
+<tr>
+<td>attachmentImageWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина прикрепленного изображения</td>
+</tr>
+<tr>
+<td>attachmentImageHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота прикрепленного изображения</td>
+</tr>
+<tr>
+<td>attachmentImagePadding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внешние отступы сообщения c прикрепленным изображением</td>
+</tr>
+<tr>
+<td>attachmentImageInfoColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет описания прикрепленного изображения</td>
+</tr>
+<tr>
+<td>attachmentImageInfoFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта описания прикрепленного изображения</td>
+</tr>
+<tr>
+<td>linkFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Гарнитура ссылки</td>
+</tr>
+<tr>
+<td>linkFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта ссылки</td>
+</tr>
+<tr>
+<td>linkColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста ссылки</td>
+</tr>
+<tr>
+<td>linkFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта ссылки</td>
+</tr>
+<tr>
+<td>attachmentIcon</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Пиктограмма вложения</td>
+</tr>
+<tr>
+<td>attachmentIconSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер пиктограммы вложения</td>
+</tr>
+<tr>
+<td>attachmentIconHover</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Пиктограмма вложения (при наведении)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="messagetime">MessageTime</h4>
+<p>Время сообщения</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Гарнитура</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>top</td>
+<td><a href="http://htmlbook.ru/css/top">top</a></td>
+<td>Отступ сверху относительно сообщения</td>
+</tr>
+</tbody>
+</table>
+<h4 id="offline">Offline</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/Offline.png" alt="Offline"></p>
+<p>Экран недоступности сети</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>maxWidth</td>
+<td><a href="http://htmlbook.ru/css/max-width">max-width</a></td>
+<td>Максимальная ширина</td>
+</tr>
+<tr>
+<td>textAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста</td>
+</tr>
+<tr>
+<td>textColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет основного текста</td>
+</tr>
+<tr>
+<td>textFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта основного текста</td>
+</tr>
+<tr>
+<td>textFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта основного текста</td>
+</tr>
+<tr>
+<td>textFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта основного текста</td>
+</tr>
+<tr>
+<td>subtextColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет дополнительного текста</td>
+</tr>
+<tr>
+<td>subtextFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта дополнительного текста</td>
+</tr>
+<tr>
+<td>subtextFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта дополнительного текста</td>
+</tr>
+<tr>
+<td>subtextFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта дополнительного текста</td>
+</tr>
+<tr>
+<td>buttonMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы кнопки</td>
+</tr>
+</tbody>
+</table>
+<h4 id="preloader">Preloader</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/Preloader.png" alt="Preloader"></p>
+<p>Прелоадер, блокирующий окно чата</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>spinnerBackgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Изображение для прелоадера</td>
+</tr>
+</tbody>
+</table>
+<h4 id="preview">Preview</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/Preview.png" alt="Preview"></p>
+<p>Область предпросмотра вложений и цитируемых сообщений</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>attachmentIcon</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Пиктограмма вложения-документа</td>
+</tr>
+<tr>
+<td>buttonBackgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Изображение для кнопки &quot;Закрыть&quot;</td>
+</tr>
+<tr>
+<td>buttonWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина кнопки &quot;Закрыть&quot;</td>
+</tr>
+<tr>
+<td>buttonHeight</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота кнопки &quot;Закрыть&quot;</td>
+</tr>
+<tr>
+<td>quotedMessageBorderLeft</td>
+<td><a href="http://htmlbook.ru/css/border-left">border-left</a></td>
+<td>Граница слева для цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageBorderRight</td>
+<td><a href="http://htmlbook.ru/css/border-right">border-right</a></td>
+<td>Граница справа для цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageBorderTop</td>
+<td><a href="http://htmlbook.ru/css/border-top">border-top</a></td>
+<td>Граница сверху для цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageBorderBottom</td>
+<td><a href="http://htmlbook.ru/css/border-bottom">border-bottom</a></td>
+<td>Граница снизу для цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessagePadding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина блока цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Гарнитура текста цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта текста цитируемого сообщения</td>
+</tr>
+<tr>
+<td>quotedMessageFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта текста цитируемого сообщения</td>
+</tr>
+<tr>
+<td>linkFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Гарнитура ссылки</td>
+</tr>
+<tr>
+<td>linkFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта ссылки</td>
+</tr>
+<tr>
+<td>linkColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста ссылки</td>
+</tr>
+<tr>
+<td>linkFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта ссылки</td>
+</tr>
+</tbody>
+</table>
+<h4 id="quickquestions">QuickQuestions</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/QuickQuestions.png" alt="QuickQuestions"></p>
+<p>Панель быстрых ответов</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td><a href="http://htmlbook.ru/css/direction">direction</a></td>
+<td>Расположение элементов. &quot;row&quot; (по умолчанию) - в ряд, &quot;column&quot; - колонкой</td>
+</tr>
+<tr>
+<td>containerBackground</td>
+<td><a href="http://htmlbook.ru/css/background">background</a></td>
+<td>Фон контейнера</td>
+</tr>
+<tr>
+<td>buttonFontWeight</td>
+<td><a href="http://htmlbook.ru/css/font-weight">font-weight</a></td>
+<td>Насыщенность шрифта элемента</td>
+</tr>
+<tr>
+<td>buttonFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта элемента</td>
+</tr>
+<tr>
+<td>buttonFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта элемента</td>
+</tr>
+<tr>
+<td>buttonBorderRadius</td>
+<td><a href="http://htmlbook.ru/css/border-radius">border-radius</a></td>
+<td>Скругление углов элемента</td>
+</tr>
+<tr>
+<td>buttonMargin</td>
+<td><a href="http://htmlbook.ru/css/margin">margin</a></td>
+<td>Внешние отступы элемента</td>
+</tr>
+<tr>
+<td>buttonBorder</td>
+<td><a href="http://htmlbook.ru/css/border">border</a></td>
+<td>Граница элемента</td>
+</tr>
+<tr>
+<td>buttonBackground</td>
+<td><a href="http://htmlbook.ru/css/background">background</a></td>
+<td>Фон элемента</td>
+</tr>
+<tr>
+<td>buttonColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста элемента</td>
+</tr>
+<tr>
+<td>buttonBorderHover</td>
+<td><a href="http://htmlbook.ru/css/border">border</a></td>
+<td>Граница элемента (при наведении)</td>
+</tr>
+<tr>
+<td>buttonBackgroundHover</td>
+<td><a href="http://htmlbook.ru/css/background">background</a></td>
+<td>Фон элемента (при наведении)</td>
+</tr>
+<tr>
+<td>buttonColorHover</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста элемента (при наведении)</td>
+</tr>
+<tr>
+<td>buttonBorderActive</td>
+<td><a href="http://htmlbook.ru/css/border">border</a></td>
+<td>Граница элемента (при нажатии)</td>
+</tr>
+<tr>
+<td>buttonBackgroundActive</td>
+<td><a href="http://htmlbook.ru/css/background">background</a></td>
+<td>Фон элемента (при нажатии)</td>
+</tr>
+<tr>
+<td>buttonColorActive</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста элемента (при нажатии)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="scrollbutton">ScrollButton</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/ScrollButton.png" alt="ScrollButton"></p>
+<p>Кнопка прокрутки области переписки вниз.</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>marginTop</td>
+<td><a href="http://htmlbook.ru/css/margin-top">margin-top</a></td>
+<td>Внешний верхний отступ</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина кнопки</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота кнопки</td>
+</tr>
+<tr>
+<td>backgroundSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер изображения на кнопке</td>
+</tr>
+<tr>
+<td>backgroundImage</td>
+<td><a href="http://htmlbook.ru/css/background-image">background-image</a></td>
+<td>Путь к изображению на кнопке</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона кнопки</td>
+</tr>
+</tbody>
+</table>
+<h4 id="scrollbuttonbadge">ScrollButtonBadge</h4>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>lineHeight</td>
+<td><a href="http://htmlbook.ru/css/line-height">line-height</a></td>
+<td>Высота строки</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона пузыря</td>
+</tr>
+<tr>
+<td>height</td>
+<td><a href="http://htmlbook.ru/css/height">height</a></td>
+<td>Высота</td>
+</tr>
+<tr>
+<td>width</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина для счетчика</td>
+</tr>
+<tr>
+<td>top</td>
+<td><a href="http://htmlbook.ru/css/top">top</a></td>
+<td>Позиционирование относительно верхнего края кнопки скролла</td>
+</tr>
+<tr>
+<td>left</td>
+<td><a href="http://htmlbook.ru/css/left">left</a></td>
+<td>Позиционирование относительно левого края кнопки скролла</td>
+</tr>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Отступы внутри бейджа</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sociallinks">SocialLinks</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/SocialLinks.png" alt="SocialLinks"></p>
+<p>Панель внешних ссылок</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>padding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы секции</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона секции</td>
+</tr>
+<tr>
+<td>fontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>cellWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина выделенного места под кнопку</td>
+</tr>
+<tr>
+<td>buttonSize</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Размер кнопки (высота и ширина)</td>
+</tr>
+<tr>
+<td>buttonBackgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона кнопки</td>
+</tr>
+<tr>
+<td>buttonImageSize</td>
+<td><a href="http://htmlbook.ru/css/background-size">background-size</a></td>
+<td>Размер изображения на кнопке</td>
+</tr>
+</tbody>
+</table>
+<h4 id="typing">Typing</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/Typing.png" alt="Typing"></p>
+<p>Уведомление о том, что оператор набирает сообщение</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>avatarDisplay</td>
+<td><a href="http://htmlbook.ru/css/display">display</a></td>
+<td>Способ отображения аватара</td>
+</tr>
+<tr>
+<td>color</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет текста</td>
+</tr>
+<tr>
+<td>opacity</td>
+<td><a href="http://htmlbook.ru/css/opacity">opacity</a></td>
+<td>Непрозрачность текста</td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта</td>
+</tr>
+<tr>
+<td>containerPadding</td>
+<td><a href="http://htmlbook.ru/css/padding">padding</a></td>
+<td>Внутренние отступы блока</td>
+</tr>
+<tr>
+<td>containerBackground</td>
+<td><a href="http://htmlbook.ru/css/background">background</a></td>
+<td>Цвет фона блока</td>
+</tr>
+<tr>
+<td>containerWidth</td>
+<td><a href="http://htmlbook.ru/css/width">width</a></td>
+<td>Ширина блока</td>
+</tr>
+<tr>
+<td>borderTopLeftRadius</td>
+<td><a href="http://htmlbook.ru/css/border-top-left-radius">border-top-left-radius</a></td>
+<td>Скругление верхнего левого угла</td>
+</tr>
+<tr>
+<td>borderBottomLeftRadius</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-left-radius">border-bottom-left-radius</a></td>
+<td>Скругление нижнего левого угла</td>
+</tr>
+<tr>
+<td>borderTopRightRadius</td>
+<td><a href="http://htmlbook.ru/css/border-top-right-radius">border-top-right-radius</a></td>
+<td>Скругление верхнего правого угла</td>
+</tr>
+<tr>
+<td>borderBottomRightRadius</td>
+<td><a href="http://htmlbook.ru/css/border-bottom-right-radius">border-bottom-right-radius</a></td>
+<td>Скругление нижнего правого угла</td>
+</tr>
+<tr>
+<td>animationPreset</td>
+<td>-</td>
+<td>Тип анимации, целое число от 1 до 2</td>
+</tr>
+</tbody>
+</table>
+<h4 id="webview">WebView</h4>
+<p><img src="file:////home/mazay/projects/threads-sdk-web-gate.wiki/assets/ru/WebView.png" alt="WebView"></p>
+<p>Контейнер, позволяющий отображать контент со стороннего ресурса</p>
+<table>
+<thead>
+<tr>
+<th>Свойство в настройках</th>
+<th>CSS-свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backgroundColor</td>
+<td><a href="http://htmlbook.ru/css/background-color">background-color</a></td>
+<td>Цвет фона</td>
+</tr>
+<tr>
+<td>errorTextColor</td>
+<td><a href="http://htmlbook.ru/css/color">color</a></td>
+<td>Цвет сообщения об ошибке</td>
+</tr>
+<tr>
+<td>errorTextFontSize</td>
+<td><a href="http://htmlbook.ru/css/font-size">font-size</a></td>
+<td>Размер шрифта сообщения об ошибке</td>
+</tr>
+<tr>
+<td>errorTextFontFamily</td>
+<td><a href="http://htmlbook.ru/css/font-family">font-family</a></td>
+<td>Семейство шрифта сообщения об ошибке</td>
+</tr>
+<tr>
+<td>errorTextTextAlign</td>
+<td><a href="http://htmlbook.ru/css/text-align">text-align</a></td>
+<td>Выравнивание текста сообщения об ошибке</td>
+</tr>
+</tbody>
+</table>
+
+    </body>
+    </html>
