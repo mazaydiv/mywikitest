@@ -1,54 +1,66 @@
 #### Содержание
-* [**filename**](#filename)
-* [**style**](#style)
-* [**webchat/package, webchat/uid**](#webchatpackage-webchatuid)
-* [**webchat/appMarker**](#webchatappmarker)
-* [**webchat/checkURL**](#webchatcheckurl)
-* [**webchat/datastore**](#webchatdatastore)
-* [**webchat/history**](#webchathistory)
-* [**webchat/unauthorizedHistory**](#webchatunauthorizedhistory)
-* [**webchat/opengraph**](#webchatopengraph)
-* [**webchat/apiUrl**](#webchatapiurl)
-* [**webchat/websocket**](#webchatwebsocket)
-* [**webchat/connectDelay**](#webchatconnectdelay)
-* [**webchat/wsReconnectType**](#webchatwsreconnecttype)
-* [**webchat/wsMaxRetries**](#webchatwsmaxretries)
-* [**webchat/wsRetryTimeoutMs**](#webchatwsretrytimeoutms)
-* [**webchat/schedule**](#webchatschedule)
-* [**webchat/schedule/interval**](#webchatscheduleinterval)
-* [**webchat/activePages**](#webchatactivepages)
-* [**webchat/isContainerHidden**](#webchatiscontainerhidden)
-* [**webchat/allowedTypes**](#webchatallowedtypes)
-* [**webchat/maximizeOnInit**](#webchatmaximizeoninit)
-* [**webchat/disableInputOnQuickReplies**](#webchatdisableinputonquickreplies)
-* [**webchat/disableQuoting**](#webchatdisablequoting)
-* [**webchat/disableFormatSimpleMessages**](#webchatdisableformatsimplemessages)
-* [**webchat/locale**](#webchatlocale)
-* [**webchat/locales**](#webchatlocales)
-* [**webchat/chatHeader**](#webchatchatheader)
-* [**webchat/chatHeader/hideSearchText**](#webchatchatheaderhidesearchtext)
-* [**webchat/chatHeader/showOrganisationUnit**](#webchatchatheadershoworganisationunit)
-* [**webchat/hideWelcome**](#webchathidewelcome)
-* [**webchat/welcomeForm**](#webchatwelcomeform)
-* [**webchat/inactivityForm**](#webchatinactivityform)
-* [**webchat/clientId**](#webchatclientid)
-* [**webchat/clientData**](#webchatclientdata)
-* [**webchat/signature**](#webchatsignature)
-* [**webchat/enableGeoRequest**](#webchatenablegeorequest)
-* [**webchat/enableIpRequest**](#webchatenableiprequest)
-* [**webchat/webNotification**](#webchatwebnotification)
-* [**webchat/webNotification/title**](#webchatwebnotificationtitle)
-* [**webchat/webNotification/icon**](#webchatwebnotificationicon)
-* [**webchat/disableWebNotification**](#webchatdisablewebnotification)
-* [**webchat/pushNotification**](#webchatpushnotification)
-* [**webchat/socialLinks**](#webchatsociallinks)
-* [**webchat/socialLinks/visible**](#webchatsociallinksvisible)
-* [**webchat/socialLinks/buttons**](#webchatsociallinksbuttons)
+* [**Файлы чата**](#user-content-Файлы-чата)
+	* [**filename**](#filename)
+	* [**style**](#style)
+* [**Подключение к сервисам Чат-платформы**](#user-content-Подключение-к-сервисам-Чат-платформы)
+	* [**webchat/package, webchat/uid**](#webchatpackage-webchatuid)
+	* [**webchat/appMarker**](#webchatappmarker)
+	* [**webchat/checkURL**](#webchatcheckurl)
+	* [**webchat/datastore**](#webchatdatastore)
+	* [**webchat/history**](#webchathistory)
+	* [**webchat/unauthorizedHistory**](#webchatunauthorizedhistory)
+	* [**webchat/opengraph**](#webchatopengraph)
+	* [**webchat/apiUrl**](#webchatapiurl)
+* [**Настройки WS**](#user-content-Настройки-WS)
+	* [**webchat/websocket**](#webchatwebsocket)
+	* [**webchat/connectDelay**](#webchatconnectdelay)
+	* [**webchat/wsReconnectType**](#webchatwsreconnecttype)
+	* [**webchat/wsMaxRetries**](#webchatwsmaxretries)
+	* [**webchat/wsRetryTimeoutMs**](#webchatwsretrytimeoutms)
+* [**Настройки доступности Чата**](#user-content-Настройки-доступности-Чата)
+	* [**webchat/schedule**](#webchatschedule)
+	* [**webchat/schedule/interval**](#webchatscheduleinterval)
+	* [**webchat/activePages**](#webchatactivepages)
+	* [**webchat/isContainerHidden**](#webchatiscontainerhidden)
+* [**Настройки поведения Чата**](#user-content-Настройки-поведения-Чата)
+	* [**webchat/allowedTypes**](#webchatallowedtypes)
+	* [**webchat/maximizeOnInit**](#webchatmaximizeoninit)
+	* [**webchat/disableInputOnQuickReplies**](#webchatdisableinputonquickreplies)
+	* [**webchat/disableQuoting**](#webchatdisablequoting)
+	* [**webchat/disableFormatSimpleMessages**](#webchatdisableformatsimplemessages)
+* [**Локализация**](#user-content-Локализация)
+	* [**webchat/locale**](#webchatlocale)
+	* [**webchat/locales**](#webchatlocales)
+* [**Настройки шапки Чата**](#user-content-Настройки-шапки-Чата)
+	* [**webchat/chatHeader**](#webchatchatheader)
+	* [**webchat/chatHeader/hideSearchText**](#webchatchatheaderhidesearchtext)
+	* [**webchat/chatHeader/showOrganisationUnit**](#webchatchatheadershoworganisationunit)
+* [**Настройки приветственной и формы обратной связи**](#user-content-Настройки-приветственной-и-формы-обратной-связи)
+	* [**webchat/hideWelcome**](#webchathidewelcome)
+	* [**webchat/welcomeForm**](#webchatwelcomeform)
+	* [**webchat/inactivityForm**](#webchatinactivityform)
+* [**Данные клиента**](#user-content-Данные-клиента)
+	* [**webchat/clientId**](#webchatclientid)
+	* [**webchat/clientData**](#webchatclientdata)
+	* [**webchat/signature**](#webchatsignature)
+* [**Настройки определения местоположения клиента**](#user-content-Настройки-определения-местоположения-клиента)
+	* [**webchat/enableGeoRequest**](#webchatenablegeorequest)
+	* [**webchat/enableIpRequest**](#webchatenableiprequest)
+* [**Настройки Web-нотификаций и Push-нотификаций**](#user-content-Настройки-Web-нотификаций-и-Push-нотификаций)
+	* [**webchat/webNotification**](#webchatwebnotification)
+	* [**webchat/webNotification/title**](#webchatwebnotificationtitle)
+	* [**webchat/webNotification/icon**](#webchatwebnotificationicon)
+	* [**webchat/disableWebNotification**](#webchatdisablewebnotification)
+	* [**webchat/pushNotification**](#webchatpushnotification)
+* [**Настройки блока социальных ссылок**](#user-content-Настройки-блока-социальных-ссылок)
+	* [**webchat/socialLinks**](#webchatsociallinks)
+	* [**webchat/socialLinks/visible**](#webchatsociallinksvisible)
+	* [**webchat/socialLinks/buttons**](#webchatsociallinksbuttons)
 
 
-## **Файлы чата**
+### **Файлы чата**
 
-### **filename**
+#### **filename**
 
 Ядро виджета Чата (Javascript-файл)
 
@@ -59,7 +71,7 @@
 
 ---
 
-### **style**
+#### **style**
 
 Путь к файлу с CSS-стилями Чата
 
@@ -71,9 +83,9 @@
 ---
 
 
-## **Подключение к сервисам Чат-платформы**
+### **Подключение к сервисам Чат-платформы**
 
-### **webchat/package, webchat/uid**
+#### **webchat/package, webchat/uid**
 
 Настройки интеграции с Threads API
 
@@ -84,7 +96,7 @@
 
 ---
 
-### **webchat/appMarker**
+#### **webchat/appMarker**
 
 Идентификатор приложения, используется для работы с несколькими приложениями в рамках одного канала.
 
@@ -95,7 +107,7 @@
 
 ---
 
-### **webchat/checkURL**
+#### **webchat/checkURL**
 
 Адрес сервиса проверки доступности сети и push-платформы.
 
@@ -106,7 +118,7 @@
 
 ---
 
-### **webchat/datastore**
+#### **webchat/datastore**
 
 Адрес файлового хранилища
 
@@ -117,7 +129,7 @@
 
 ---
 
-### **webchat/history**
+#### **webchat/history**
 
 Настройки интерфейса подгрузки истории сообщений.
 
@@ -131,7 +143,7 @@
 
 ---
 
-### **webchat/unauthorizedHistory**
+#### **webchat/unauthorizedHistory**
 
 Настройка подгрузки истории сообщений, для неавторизованной зоны. url - адрес сервера для получения истори.<br>count - количество подгружаемых сообщений за одно обращение к серверу<br>enable: true/false включение/отключение режима хранения истории.<br>cookie: объект настройки хранения идентификатора клиента, для получения истории сообщений. Ключ по умолчанию Max-Age - время хранения. Так же доступны другие параметры хранения, согласно [официальной документации](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
 
@@ -149,7 +161,7 @@
 
 ---
 
-### **webchat/opengraph**
+#### **webchat/opengraph**
 
 Настройка протокола OpenGraph, для получения превью при вставке ссылок в тексте сообщения
 
@@ -160,7 +172,7 @@
 
 ---
 
-### **webchat/apiUrl**
+#### **webchat/apiUrl**
 
 Настройка адреса для API запросов
 
@@ -172,9 +184,9 @@
 ---
 
 
-## **Настройки WS**
+### **Настройки WS**
 
-### **webchat/websocket**
+#### **webchat/websocket**
 
 Адрес websocket сервера
 
@@ -185,7 +197,7 @@
 
 ---
 
-### **webchat/connectDelay**
+#### **webchat/connectDelay**
 
 Время от момента инициализации Чата до установки WebSocket-соединения (мс).
 
@@ -196,7 +208,7 @@
 
 ---
 
-### **webchat/wsReconnectType**
+#### **webchat/wsReconnectType**
 
 Способ переподключения WebSocket при потере подключения. 0 - (по умолчанию) переподключаться автоматически. 1 - переподключаться при отправке сообщения пользователем
 
@@ -207,7 +219,7 @@
 
 ---
 
-### **webchat/wsMaxRetries**
+#### **webchat/wsMaxRetries**
 
 Количество попыток переподключения WebSocket
 
@@ -218,7 +230,7 @@
 
 ---
 
-### **webchat/wsRetryTimeoutMs**
+#### **webchat/wsRetryTimeoutMs**
 
 Начальное время между попытками переподключения WebSocket (мс). Каждая новая попытка увеличивает предыдущее время вдвое
 
@@ -230,9 +242,9 @@
 ---
 
 
-## **Настройки доступности Чата**
+### **Настройки доступности Чата**
 
-### **webchat/schedule**
+#### **webchat/schedule**
 
 Настройки доступности Чата.
 
@@ -245,7 +257,7 @@
 
 ---
 
-### **webchat/schedule/interval**
+#### **webchat/schedule/interval**
 
 Частота (в миллисекундах) с которой в интерфейсе происходит отображение изменений настройки "Режим работы чата" (настройка выполняется в АРМ Администратора). Отображение изменений будет происходить не чаще одного раза в указанный период, даже если в течение этого периода изменение настройки "Режим работы чата" произойдет много раз - все промежуточные события будут проигнорированы.
 
@@ -256,7 +268,7 @@
 
 ---
 
-### **webchat/activePages**
+#### **webchat/activePages**
 
 Массив адресов страниц, на которых разрешен виджет Чата
 
@@ -267,7 +279,7 @@
 
 ---
 
-### **webchat/isContainerHidden**
+#### **webchat/isContainerHidden**
 
 Управление видимостью стартовой кнопки чата. Подробности по управлению видимостью главного окна чата см. раздел “Управление видимостью виджета”
 
@@ -279,9 +291,9 @@ false
 ---
 
 
-## **Настройки поведения Чата**
+### **Настройки поведения Чата**
 
-### **webchat/allowedTypes**
+#### **webchat/allowedTypes**
 
 Массив расширений файлов, разрешенных к загрузке
 
@@ -292,7 +304,7 @@ false
 
 ---
 
-### **webchat/maximizeOnInit**
+#### **webchat/maximizeOnInit**
 
 Настройка, позволяющая автоматически разворачивать окно Чата при первой инициализации приложения. Следующие запуски Чата будут игнорировать эту настройку (будет использоваться последнее известное состояние). Данная опция работает только при использовании [стандартной стартовой кнопки](Настройка-темы-оформления#chatbutton), для этого параметр `isContainerHidden` (см. ниже) должен иметь значение `false`
 
@@ -303,7 +315,7 @@ false
 
 ---
 
-### **webchat/disableInputOnQuickReplies**
+#### **webchat/disableInputOnQuickReplies**
 
 Установка этой настройки в значение `true` блокирует отправку сообщений при получении сообщения с быстрыми ответами
 
@@ -314,7 +326,7 @@ false
 
 ---
 
-### **webchat/disableQuoting**
+#### **webchat/disableQuoting**
 
 Настройка запрещающая цитирование сообщений (`true`/`false`)
 
@@ -325,7 +337,7 @@ false
 
 ---
 
-### **webchat/disableFormatSimpleMessages**
+#### **webchat/disableFormatSimpleMessages**
 
 Отключение форматирование для сообщений (все, кроме сообщений бота содержащих markdown) (`true`/`false`).
 
@@ -337,9 +349,9 @@ false
 ---
 
 
-## **Локализация**
+### **Локализация**
 
-### **webchat/locale**
+#### **webchat/locale**
 
 Локаль виджета. Доступные варианты: `ru`, `en`, `id`, `az`
 
@@ -350,7 +362,7 @@ false
 
 ---
 
-### **webchat/locales**
+#### **webchat/locales**
 
 Перепоределение [локализационных текстов](Настройка-языковой-локализации)
 
@@ -362,9 +374,9 @@ locales": {}
 ---
 
 
-## **Настройки шапки Чата**
+### **Настройки шапки Чата**
 
-### **webchat/chatHeader**
+#### **webchat/chatHeader**
 
 Настройка [шапки Чата](Настройка-темы-оформления#chatheader)
 
@@ -378,7 +390,7 @@ locales": {}
 
 ---
 
-### **webchat/chatHeader/hideSearchText**
+#### **webchat/chatHeader/hideSearchText**
 
 Настройка, отключающая отображение текста в шапке Чата, выводимого при поиске оператора.
 
@@ -389,7 +401,7 @@ false
 
 ---
 
-### **webchat/chatHeader/showOrganisationUnit**
+#### **webchat/chatHeader/showOrganisationUnit**
 
 Настройка, включающая отображение подразделения подключившегося оператора в шапке Чата
 
@@ -401,9 +413,9 @@ false
 ---
 
 
-## **Настройки приветственной и формы обратной связи**
+### **Настройки приветственной и формы обратной связи**
 
-### **webchat/hideWelcome**
+#### **webchat/hideWelcome**
 
 Настройка, позволяющая отключить показ [блока приветствия](Настройка-темы-оформления#chatwelcome)
 
@@ -414,7 +426,7 @@ false
 
 ---
 
-### **webchat/welcomeForm**
+#### **webchat/welcomeForm**
 
 Настройки [контактной](Настройка-темы-оформления#chatwelcome) формы в блоке приветствия. Видимость блока приветствия (предложения представиться) настраиватеся с помощью параметров `pre.text` и `pre.notice`.<br>Для формы доступно использование любого набора полей из имеющихся: телефон, email, имя клиента. При отсутствии настройки форма содержит полный набор этих параметров. Для каждого поля задается отображение (`visible`) и обязательность заполнения (`required`).<br>Для телефона можно задать маску. Для определения позиции цифр используется латинский символ X. Например: строка "+7 (XXX) XXX-XX-XX" задает маску "+7 (\_\_\_) \_\_\_\-\_\_\-\_\_". По умолчанию маска не задана, для номера телефона допускается ввод только цифр.<br>Ошибки заполнения полей [подсвечиваются](Настройка-темы-оформления#inputtext)
 
@@ -443,7 +455,7 @@ false
 
 ---
 
-### **webchat/inactivityForm**
+#### **webchat/inactivityForm**
 
 Настройки формы, отображаемой в режиме недоступности Чата *(рис. 2)*. Имеется возможность создать свой набор полей из имеющихся (телефон, электропочта, имя клиента). Также, в этой секции можно изменить текст выводимый над формой и после отправки формы.
 
@@ -459,9 +471,9 @@ false
 ---
 
 
-## **Данные клиента**
+### **Данные клиента**
 
-### **webchat/clientId**
+#### **webchat/clientId**
 
 Имя свойства объекта `window` в котором ожидается идентификатор авторизованного пользователя
 
@@ -472,7 +484,7 @@ false
 
 ---
 
-### **webchat/clientData**
+#### **webchat/clientData**
 
 Имя свойства объекта `window` в котором ожидается дополнительная информация о клиенте
 
@@ -483,7 +495,7 @@ false
 
 ---
 
-### **webchat/signature**
+#### **webchat/signature**
 
 Имя свойства объекта `window` в котором ожидается цифровая подпись идентификатора авторизованного пользователя
 
@@ -495,9 +507,9 @@ false
 ---
 
 
-## **Настройки определения местоположения клиента**
+### **Настройки определения местоположения клиента**
 
-### **webchat/enableGeoRequest**
+#### **webchat/enableGeoRequest**
 
 Настройка включения запрос местоположения (`true`/`false`).
 
@@ -508,7 +520,7 @@ false
 
 ---
 
-### **webchat/enableIpRequest**
+#### **webchat/enableIpRequest**
 
 Настройка включения запрос ip адреса (`true`/`false`).
 
@@ -520,9 +532,9 @@ true
 ---
 
 
-## **Настройки Web-нотификаций и Push-нотификаций**
+### **Настройки Web-нотификаций и Push-нотификаций**
 
-### **webchat/webNotification**
+#### **webchat/webNotification**
 
 Настройки нотификаций *(рис. 3)*
 
@@ -536,7 +548,7 @@ true
 
 ---
 
-### **webchat/webNotification/title**
+#### **webchat/webNotification/title**
 
 Заголовок нотификаций
 
@@ -547,7 +559,7 @@ true
 
 ---
 
-### **webchat/webNotification/icon**
+#### **webchat/webNotification/icon**
 
 Иконка нотификации в формате base64 (jpg/png).
 
@@ -558,7 +570,7 @@ true
 
 ---
 
-### **webchat/disableWebNotification**
+#### **webchat/disableWebNotification**
 
 Настройка для отправки нотификаций (`true`/`false`).
 
@@ -569,7 +581,7 @@ false
 
 ---
 
-### **webchat/pushNotification**
+#### **webchat/pushNotification**
 
 Настройка push уведомлений. Для включения уведомлений необходимо выставить `enable: true`, и заполнить раздел `firebaseConfig` данными своего проекта в [Firebase](https://console.firebase.google.com/u/0/)
 
@@ -584,9 +596,9 @@ false
 ---
 
 
-## **Настройки блока социальных ссылок**
+### **Настройки блока социальных ссылок**
 
-### **webchat/socialLinks**
+#### **webchat/socialLinks**
 
 Настройка [блока социальных ссылок](Настройка-темы-оформления#sociallinks)
 
@@ -606,7 +618,7 @@ false
 
 ---
 
-### **webchat/socialLinks/visible**
+#### **webchat/socialLinks/visible**
 
 Включение / отключение блока социальных ссылок (`true`/`false`)
 
@@ -617,7 +629,7 @@ false
 
 ---
 
-### **webchat/socialLinks/buttons**
+#### **webchat/socialLinks/buttons**
 
 Кнопки панели социальных ссылок. Коллекция объектов, каждый из которых содержит три свойства: `url` (ссылка), `tooltip` (подсказка при наведении) и `image` (ссылка на изображение или [data: URL](http://base64.resampled.ru/) изображения)
 
